@@ -3,7 +3,7 @@ services:
   web:
     build: ./phpserver
     ports:
-      - "80:8000"
+      - "8000:80"
       - "3000"
       - "22"
     environment:
@@ -12,7 +12,7 @@ services:
       - selenium-chrome
       - selenium-chrome-debug
     volumes:
-      - ./webapp/:/var/www/html/
+      - ./phpserver/:/var/www/html/
 
   selenium-chrome:
     image: selenium/standalone-chrome:3.4.0-chromium
@@ -35,7 +35,7 @@ services:
     image: reactjs_nginx
     container_name: reactjs_nginx_container
     ports:
-      - "80:8080"
+      - "8080:8080"
     volumes:
       - ./app/dist:/wwwroot:ro
   webpack:

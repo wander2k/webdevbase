@@ -3,7 +3,8 @@ const path = require('path');
 module.exports = {
   entry: {
     bundle: './src/app.js',
-    reduxsample: './src/redux-sample.js'
+    reduxsample: './src/redux-sample.js',
+    todos : './src/reduxTodos/index.js'
   },
   output: {
     path: path.join(__dirname, 'dist'),
@@ -17,7 +18,7 @@ module.exports = {
         test: /\.js[x]?$/,
         query: {
           cacheDirectory: true,
-          presets: ['react', 'es2015']
+          presets: ['react', 'es2015', 'stage-3']
         }
       }
     ]

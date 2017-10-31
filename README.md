@@ -1,14 +1,20 @@
-A startup footstep set of microservice development
-PHP / React Webaplication
-# 機能
-## php7 on apache server
-### - built-in codeception framework with test automation ready
-### - e2e test sample
-## nginx
-### - ReactJs+ReactBoostrap+Redux sample
-## webpack
-## selenium server
+# A startup footstep set of microservice development
+# A good start to using for php / ReactJS Webaplication
+## Description 
+### php7 on apache server
+#### - built-in codeception framework with test automation ready
+#### - e2e test sample
+### nginx
+#### - ReactJs+ReactBoostrap+Redux sample
+### webpack
+### selenium server
 
+#request
+## Mac
+## Docker
+## Docker-compose
+## Homebrew
+## Composer
 ```
 git clone git@github.com:wander2k/webdevbase.git
 cd webdevbase
@@ -16,4 +22,4 @@ cd webdevbase
 #bash ./bin/run_webapp_test.sh
 ```
 
-## vnc password:secret
+#### vnc password:secret

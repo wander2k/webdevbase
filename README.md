@@ -8,7 +8,6 @@
   * ReactJs+ReactBoostrap+Redux sample
 * webpack
 * selenium server
-* MySQL
 
 # request
 * Mac

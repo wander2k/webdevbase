@@ -3,7 +3,7 @@ services:
   web:
     build: ./phpserver
     ports:
-      - "8000:80"
+      - "8888:80"
       - "3000"
       - "22"
     environment:
@@ -35,7 +35,7 @@ services:
     image: reactjs_nginx
     container_name: reactjs_nginx_container
     ports:
-      - "8080:8080"
+      - "8008:8080"
     volumes:
       - ./app/dist:/wwwroot:ro
   webpack:
@@ -46,6 +46,34 @@ services:
     volumes:
       - ./app/src:/app/src:ro
       - ./app/dist:/app/dist:z
+  kong-postgre:
+    image: postgres:9.4
+    container_name: kong-postgre
+    ports:
+      - 5342:5342
+    environment:
+      - POSTGRES_USER=kong
+      - POSTGRES_DB=kong
+  kong:
+    build:
+      context: ./kong
+    environment:
+      KONG_DATABASE: "postgres"
+      KONG_PG_HOST: "kong-postgre"
+      KONG_PROXY_ACCESS_LOG: /dev/stdout
+      KONG_ADMIN_ACCESS_LOG: /dev/stdout
+      KONG_PROXY_ERROR_LOG: /dev/stderr
+      KONG_ADMIN_ERROR_LOG: /dev/stderr
+    depends_on:
+      - kong-postgre
+    ports:
+     - 8000:8000
+     - 8443:8443
+     - 8001:8001
+     - 8444:8444
+    command: >
+      bash -c 
+      "/docker-entrypoint.sh && /tmp/shell/wait-for-postgres.sh $$KONG_PG_HOST kong migrations up"
   whoami:
     image: jwilder/whoami
     environment:

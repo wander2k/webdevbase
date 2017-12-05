@@ -48,7 +48,7 @@ RUN curl -fsSL 'https://xdebug.org/files/xdebug-2.4.0.tgz' -o xdebug.tar.gz \
 
 ADD . /var/www/html/
 
-
+EXPOSE 80
 EXPOSE 22
  
 WORKDIR /var/www/html/

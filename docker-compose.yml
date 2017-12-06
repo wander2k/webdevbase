@@ -2,6 +2,7 @@ version: '2'
 services:
   web:
     build: ./phpserver
+    container_name: webserver
     ports:
       - "8888:80"
       - "3000"
@@ -71,9 +72,11 @@ services:
      - 8443:8443
      - 8001:8001
      - 8444:8444
-    command: >
-      bash -c 
-      "/docker-entrypoint.sh && /tmp/shell/wait-for-postgres.sh $$KONG_PG_HOST kong migrations up"
+    # command: >
+    #   bash -c 
+    #   "/docker-entrypoint.sh && /tmp/shell/wait-for-postgres.sh $$KONG_PG_HOST kong migrations up && /docker-entrypoint.sh"
+    volumes:
+      - ./kong/work/:/var/work/
   whoami:
     image: jwilder/whoami
     environment:

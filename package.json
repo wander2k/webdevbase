@@ -4,14 +4,14 @@
   "description": "``` git clone git@github.com:wander2k/webdevbase.git cd webdevbase #bash ./bin/start.sh #bash ./bin/run_webapp_test.sh ```",
   "main": "index.js",
   "dependencies": {
-    "eslint": "^4.9.0"
+    "eslint": "^4.19.1"
   },
   "devDependencies": {
     "eslint-config-standard": "^10.2.1",
-    "eslint-plugin-import": "^2.8.0",
-    "eslint-plugin-node": "^5.2.0",
-    "eslint-plugin-promise": "^3.6.0",
-    "eslint-plugin-standard": "^3.0.1"
+    "eslint-plugin-import": "^2.22.1",
+    "eslint-plugin-node": "^5.2.1",
+    "eslint-plugin-promise": "^3.8.0",
+    "eslint-plugin-standard": "^3.1.0"
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"

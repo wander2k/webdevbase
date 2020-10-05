@@ -1,4 +1,4 @@
-FROM node:7.9.0
+FROM node:lts-alpine3.9
 
 WORKDIR /app
 COPY ./webpack.config.js /app/webpack.config.js
